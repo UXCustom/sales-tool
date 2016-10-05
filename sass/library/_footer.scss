@@ -1,0 +1,148 @@
+footer {
+  background: #000;
+  height: auto;
+  overflow: hidden;
+  padding: 30px 10px 40px;
+  position: relative;
+  top: 80px;
+  width: 100%;
+
+  &:before, &:after {
+    display: none;
+  }
+
+  .footerLeft {
+    height: auto;
+    overflow: hidden;
+    p {
+      color: #fff;
+      font-family: $roboto-reg, sans-serif;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .sponsorLogos {
+      margin-bottom: 40px;
+
+      li {
+        border-left: 1px solid #fff;
+        float: left;
+        padding: 0 10px;
+
+        &:first-of-type {
+          border-left: 0;
+          padding-left: 0;
+
+          img {width: $logo1Width}
+        }
+
+        &:nth-of-type(2) {
+          img {width: $logo2Width}
+        }
+      }
+    }
+  }
+
+  .footerRight {
+    margin-top: 60px;
+
+    .ttLogo {
+      height: 38px;
+    }
+
+    .footerLinks {
+      margin-top: 10px;
+
+      li {
+        border-left: 1px solid #fff;
+        float: left;
+        padding: 0 10px;
+
+        p, a {
+          color: #fff;
+          font-family: $roboto-reg, sans-serif;
+          font-size: 14px;
+          line-height: 1;
+        }
+
+        &:first-of-type {
+          border-left: 0;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
+
+@media ( min-width: 640px ){
+
+  footer {
+    padding-bottom: 55px;
+    top: 110px;
+
+    .footerLeft {
+      float: left;
+    }
+    .footerRight {
+      float: right;
+      margin-top: 3px;
+      width: 400px;
+
+      img {
+        float: right;
+      }
+
+      ul.footerLinks {
+        clear: right;
+        float: right;
+        margin: 20px 0 0;
+
+        li {
+          &:last-of-type {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media ( min-width: 960px ){
+  footer {
+    padding: 30px 0 40px;
+    top: 120px;
+    width: 100%;
+
+    #footerContainer {
+      height: auto;
+      margin: 0 auto;
+      overflow: hidden;
+      padding: 0 30px;
+      width: 100%;
+    }
+
+    .footerRight {
+      margin-top: 28px;
+      width: auto;
+
+      ul {
+        clear: none;
+        float: right;
+
+        &.footerLinks {
+          clear: none;
+          margin-right: 35px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  footer {
+    #footerContainer {
+      max-width: 1200px;
+      padding: 0 10px;
+    }
+  }
+}

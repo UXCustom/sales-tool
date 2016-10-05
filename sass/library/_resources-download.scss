@@ -1,0 +1,304 @@
+#downloadResourcesHeading {
+  background: $color1;
+}
+
+#downloadResourcesTitle {
+  color: #fff;
+  font-size: 10px;
+  padding: 20px;
+
+  h1 {
+    font-family: $roboto-slab-reg;
+    font-size: 22px;
+    font-weight: 100;
+    line-height: 24px;
+    margin-top: 25px;
+  }
+}
+
+#downloadResourcesContent {
+  background: #ebebeb;
+  overflow-x: hidden;
+  padding: 40px 10px;
+  position: relative;
+
+  .listContainer{
+    clear: left;
+    margin:0 auto;
+    min-height: inherit;
+    padding-bottom: 30px;
+    position: relative;
+    width:100%;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    h6 {
+      border-bottom: 1px solid #b7b7b7;
+      border-top: 3px solid $color2;
+      color: #000;
+      font-family: $roboto-reg;
+      font-size: 14px;
+      font-weight: normal;
+      margin-bottom: 25px;
+      padding:12px 0;
+      position: relative;
+      text-transform: uppercase;
+
+      span {position: absolute; top: -120px; visibility: hidden;}
+    }
+
+    ul {
+      height: auto;
+      overflow: hidden;
+
+      &.viewAll {
+        li {
+          display: block !important;
+        }
+
+        + .loadMore {
+          display: none;
+        }
+      }
+    }
+
+    li {
+      display: block;
+      height: auto;
+      margin-bottom: 15px;
+      overflow: hidden;
+
+      &:first-of-type {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      &:nth-child(n+6) {
+        display: none;
+      }
+
+      &:nth-child(n+6).open {
+        display: block;
+      }
+
+      a {
+        .additionalDownloadsContent {
+          float: left;
+          width: 90%;
+        }
+        span.title{
+          color: #000;
+          cursor: pointer;
+          display: block;
+          font-family: $roboto-reg;
+          font-size: 16px;
+          font-weight: normal;
+          line-height: 20px;
+          padding-top: 3px;
+          position: relative;
+        }
+        span.cta {
+          color: $color1;
+          display: block;
+          font-family: $roboto-med;
+          font-size: 14px;
+          font-weight: bold;
+          margin-top: 8px;
+        }
+
+        i.icon-download-arrow {
+          color: $color1;
+          float: left;
+          font-size: 18px;
+          line-height: 24px;
+          margin-right: 10px;
+          position: relative;
+          top: 0;
+        }
+
+        &:hover {
+          span.title {
+            color: $color1;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .loadMore {
+      clear: left;
+      color: #000;
+      cursor: pointer;
+      display: none;
+      font-family: $roboto-med;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 0 auto;
+      padding: 20px 0 0;
+      position: relative;
+      text-align: center;
+      width: 104px;
+
+      i {
+        color: $color1;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+@media (min-width: 640px) {
+
+  #downloadResources {
+    top: 110px;
+  }
+
+  #downloadResourcesHeading {
+    border-top: 3px solid $color1;
+    background: #fff;
+  }
+
+  #downloadResourcesContent {
+    background: #ebebeb;
+    padding: 35px 0;
+  }
+
+  #downloadResourcesTitle {
+    color: #7e7e7e;
+    margin: 0 auto;
+    max-width: 620px;
+    padding: 20px 0;
+
+    .breadcrumb span {
+      color: #7f7f7f;
+    }
+
+    h1 {
+      color: #000;
+    }
+  }
+
+  #downloadListContainer.listContainer {
+    width: 640px;
+
+    ul {
+      li {
+        float: left;
+        width: 300px;
+
+        &:nth-of-type(2) {
+          border: 0;
+          padding-top: 0;
+        }
+
+        &:nth-child(2n-3) {
+          margin-right: 40px;
+        }
+
+        &:nth-child(n+4) {
+          display: block;
+        }
+
+        &:nth-child(n+7) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media(min-width:960px){
+
+  #downloadResources {
+    top: 120px;
+  }
+
+  #downloadResourcesHeading {
+    border: 0;
+  }
+
+  #downloadResourcesTitle {
+    background: #fff;
+    max-width: 940px;
+    padding: 25px 0 30px;
+
+    h1 {
+      color: #000;
+      font-size: 34px;
+      line-height: 40px;
+      margin-top: 40px;
+    }
+  }
+
+  #downloadListContainer.listContainer {
+    width: 940px;
+
+    h6 {
+      font-size: 18px;
+      padding: 14px 0;
+    }
+
+    ul li {
+      margin-right: 20px;
+      width: 293px;
+
+      &:nth-child(2n-3) {
+        margin-right: 20px;
+      }
+
+      &:nth-child(3n-2) {
+        clear: left;
+      }
+
+      &:nth-child(3) {
+        border: 0;
+        margin-right: 0;
+        padding-top: 0;
+      }
+
+      &:nth-child(n+7) {
+        display: block;
+      }
+
+      &:nth-child(n+13) {
+        display: none;
+      }
+
+      a {
+        i.icon-download-arrow {
+          top: 0;
+        }
+        span.title {
+          font-size: 15px;
+          line-height: 20px;
+          padding-top: 0;
+          width: 265px;
+        }
+        span.description {
+          color: #666;
+          display: block;
+          font-family: $roboto-reg;
+          font-size: 16px;
+          line-height: 20px;
+          margin-top: 20px;
+        }
+
+        span.continue {
+          font-size: 12px;
+        }
+      }
+    }
+    ul.viewAll {
+      // margin-bottom: 35px;
+    }
+  }
+}
+
+@media(min-width:1280px){
+
+
+}

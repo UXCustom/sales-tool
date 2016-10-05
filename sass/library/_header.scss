@@ -1,0 +1,240 @@
+#articleHeader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+
+  #articleHeadline {
+    background: #000;
+    height: 40px;
+    position: relative;
+    width: 100%;
+    z-index: 10;
+
+    a.menuButton {
+      color: #fff;
+      cursor: pointer;
+      font-size: 36px;
+      height: 40px;
+      left: 5px;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 40px;
+
+      i {
+        position: relative;
+        top: 2px;
+      }
+    }
+
+    p{
+      color: #fff;
+      font-family: $roboto-reg, sans-serif;
+      font-size: 18px;
+      font-weight: normal;
+      line-height: 40px;
+      text-align: center;
+
+      a {
+        color: #fff;
+      }
+    }
+
+    a.socialButton {
+      color: #fff;
+      cursor: pointer;
+      font-size: 20px;
+      height: 40px;
+      position: absolute;
+      right: 7px;
+      text-align: center;
+      top: 0;
+      width: 40px;
+
+      i {
+        position: relative;
+        top: 8px;
+      }
+    }
+  }
+
+  #articleSponsorContainer {
+    background: #464646;
+    display: block !important;
+    height: 40px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 40px;
+    transition: left .5s, top .5s;
+    width: 100%;
+    z-index: 9;
+
+    ul {
+      display: block;
+      float: left;
+      left: 50%;
+      list-style: none;
+      margin-top: 5px;
+      position: relative;
+
+      li {
+        display: block;
+        float: left;
+        padding: 0;
+        padding-right: 10px;
+        position: relative;
+        right: 50%;
+
+        &:nth-of-type(1) {
+          img {width: 130px}
+        }
+
+        &:nth-of-type(2) {
+          border-left: 1px solid #fff;
+          padding-left: 10px;
+          padding-right: 0;
+
+          img {
+            width: $logo2Width;
+          }
+        }
+      }
+    }
+
+    &.nav-up {
+      top: -40px;
+    }
+  }
+}
+
+.no-touch #articleHeader #articleHeadline a.menuButton:hover, .no-touch #articleHeader #articleHeadline a.socialButton:hover {
+  color: $color1;
+}
+
+@media (min-width: 640px) {
+  #articleHeader {
+    #articleHeadline {
+      height: 55px;
+
+      p {
+        font-size: 24px;
+        line-height: 55px;
+      }
+
+      a.menuButton {
+        font-size: 50px;
+        left: 0;
+        top: 0;
+      }
+      a.socialButton {
+        font-size: 24px;
+        height: 55px;
+        top: 0;
+
+        i {
+          top: 16px;
+        }
+      }
+    }
+    #articleSponsorContainer {
+      height: 55px;
+      top: 55px;
+
+      ul {
+        margin-top: 8px;
+
+        li:nth-of-type(1) img { width: 150px;}
+      }
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  #articleHeader {
+    background: #000;
+    height: 80px;
+
+    #articleHeaderCompress {
+      height: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      padding: 0 30px;
+      position: relative;
+      width: 100%;
+    }
+
+    #articleHeadline {
+      background: none;
+      float: left;
+      position: static;
+      width: auto;
+
+      a.menuButton {
+        display: none;
+      }
+
+      p{
+        font-size: 30px;
+        // left: 30px;
+        line-height: 80px;
+        position: relative;
+        text-align: left;
+      }
+
+      a.socialButton {
+        right: 23px;
+        top: 15px;
+      }
+
+    }
+
+    #articleSponsorContainer {
+      background: none;
+      float: right;
+      margin-right: 80px;
+      position: relative;
+      top: 22px;
+      width: auto;
+
+      ul {
+        left: inherit;
+        margin-top: 0;
+
+        li {
+          right: inherit;
+
+          &:nth-of-type(1) img { width: 170px;}
+        }
+      }
+
+      &.nav-up {
+        top: 22px;
+      }
+
+      // img {
+      //   margin-right: 45px;
+      // }
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  #articleHeader {
+    #articleHeaderCompress {
+      max-width: 1120px;
+      padding: 0 10px;
+    }
+    #articleHeadline a.socialButton {
+      right: 3px;
+    }
+    #articleSponsorContainer {
+      top: 16px;
+      ul li:nth-of-type(1) img { width: 210px;}
+      &.nav-up {
+        top: 16px;
+      }
+    }
+  }
+}

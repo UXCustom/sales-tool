@@ -1,0 +1,34 @@
+header#articleHeader
+  #articleHeaderCompress
+    #articleHeadline
+      button.hamburger(type="button")
+        span.hamburger-box
+          span.hamburger-inner
+      p
+        a.siteTitle(contenteditable) Productivity and Collaboration
+      a.socialButton
+        i.icon-share
+    #articleSponsorContainer
+      ul
+        li
+          a(href="http://www.techtarget.com")
+            img(src="images/clientLogo1.png")
+        //- li
+        //-   a(href="http://www.techtarget.com")
+        //-     img(src="images/clientLogo2.png")
+    nav#articleSocialNav
+      p Like what you see? Please share.
+      .share-bar-container
+        ul.share-bar
+          li.share-bar-item.share-bar-item-desktop.socialMedia-facebook(title='Like/Share on Facebook', data-socialsite='facebook')
+            a(href='#')
+              i.icon(data-icon='u')
+          li.share-bar-item.share-bar-item-desktop.socialMedia-twitter(title='Share on Twitter', data-socialsite='twitter')
+            a(href='#')
+              i.icon(data-icon='c')
+          li.share-bar-item.share-bar-item-desktop.socialMedia-linkedin(title='Share on LinkedIn', data-socialsite='linkedin')
+            a(href='#')
+              i.icon(data-icon='o')
+          li.share-bar-item.share-bar-item-desktop.contentTools-email(title='Email a Friend')
+            a(href='&')
+              i.icon(data-icon='n')

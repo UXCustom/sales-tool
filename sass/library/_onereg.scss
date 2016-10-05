@@ -1,0 +1,46 @@
+#bprAbstractOneReg {
+
+  #articleHeader #articleHeadline .hamburger, #articleHeader #articleHeadline a.socialButton {
+    display: none;
+  }
+
+  .main-content {
+    margin: 0 auto;
+    padding: 0;
+    top: 80px;
+
+    #micrositeContainer .micrositeOneReg-section {
+      margin: 0;
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  #bprAbstractOneReg {
+    .main-content {
+      top: 110px;
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  #bprAbstractOneReg {
+    #articleHeader #articleSponsorContainer {
+      margin-right: 0;
+    }
+    .main-content {
+      padding: 0 10px 50px !important;
+      top: 80px;
+      width: 960px;
+      z-index: 1;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  #bprAbstractOneReg {
+    .main-content {
+      width: 1180px;
+    }
+  }
+}
