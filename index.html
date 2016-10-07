@@ -47,6 +47,8 @@
     <script src="javascript/script-responsive.js"></script>
     <script src="javascript/video.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+    <script type="text/javascript" src="javascript/jspdf.min.js"></script>
+    <script type="text/javascript" src="javascript/html2canvas.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
     <style>
       #editWindow {
@@ -54,7 +56,7 @@
         bottom: -10%;
         border-radius: 5px 5px  0 0;
         color: #fff;
-        display: block !important;
+        display: block;
         font: 13px/1.8 Monaco, Mono-Space;
         height: auto;
         left: 50%;
@@ -126,6 +128,9 @@
         </select>
         <p>Title Change</p>
         <input id="changeTitle">
+        <button onclick="javascript:generatePDF();" class="generate-pdf">
+          <div>Generate PDF</div>
+        </button>
       </div>
     </div>
     <script contenteditable>
@@ -185,6 +190,36 @@
             'border-top-color': $('.two').val()
           });
       });
+      
+    </script>
+    <script generatePDF>
+      function generatePDF() {
+        $('#editWindow').hide();
+        html2canvas($("body"), {
+          onrendered: function (canvas) {
+            var imgData = canvas.toDataURL('image/jpg');
+            var imgWidth = 210;
+            var pageHeight = 295;
+            var imgHeight = canvas.height * imgWidth / canvas.width;
+            var heightLeft = imgHeight;
+            
+            var doc = new jsPDF('p', 'mm');
+            var position = 0;
+            
+            doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+            
+            while (heightLeft >= 0) {
+              position = heightLeft - imgHeight;
+              doc.addPage();
+              doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+              heightLeft -= pageHeight;
+            }
+            doc.save('TechTarget-StandAloneSite.pdf')
+            $('#editWindow').show();
+          }
+        });
+      }
     </script>
     <div id="micrositeWrapper">
       <header id="articleHeader">

@@ -47,6 +47,8 @@ html(lang='en', dir='ltr')
     script(src='javascript/script-responsive.js')
     script(src='javascript/video.js')
     script(src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js")
+    script(type="text/javascript" src="javascript/jspdf.min.js")
+    script(type="text/javascript" src="javascript/html2canvas.js")
     link(rel="stylesheet", type="text/css", href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css")
     style.
       #editWindow {
@@ -54,7 +56,7 @@ html(lang='en', dir='ltr')
         bottom: -10%;
         border-radius: 5px 5px  0 0;
         color: #fff;
-        display: block !important;
+        display: block;
         font: 13px/1.8 Monaco, Mono-Space;
         height: auto;
         left: 50%;
@@ -119,7 +121,9 @@ html(lang='en', dir='ltr')
           option(value="B") B: Latest Resources
         p Title Change
         input#changeTitle
-    script(contenteditable).      
+        button.generate-pdf(onclick="javascript:generatePDF();")
+          div Generate PDF
+    script(contenteditable).
       $('.pull').on('click', function() {
         $('#editWindow').toggleClass('open');
       });
@@ -176,6 +180,35 @@ html(lang='en', dir='ltr')
             'border-top-color': $('.two').val()
           });
         });
+
+    script(generatePDF).
+      function generatePDF() {
+        $('#editWindow').hide();
+        html2canvas($("body"), {
+          onrendered: function (canvas) {
+            var imgData = canvas.toDataURL('image/jpg');
+            var imgWidth = 210;
+            var pageHeight = 295;
+            var imgHeight = canvas.height * imgWidth / canvas.width;
+            var heightLeft = imgHeight;
+
+            var doc = new jsPDF('p', 'mm');
+            var position = 0;
+
+            doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+
+            while (heightLeft >= 0) {
+              position = heightLeft - imgHeight;
+              doc.addPage();
+              doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+              heightLeft -= pageHeight;
+            }
+            doc.save('TechTarget-StandAloneSite.pdf')
+            $('#editWindow').show();
+          }
+        });
+      }
     #micrositeWrapper
       include pageSections/header
       include pageSections/navigation
