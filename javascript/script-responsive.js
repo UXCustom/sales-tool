@@ -1,5 +1,19 @@
 $(document).ready(function() {
 
+	colorsObj = new Object();
+
+	$("input[type=color]").change(function() {
+	  colorKey = $(this).attr('class');
+	  colorValue = $(this).val().replace("#", "");
+	  createParams(colorKey, colorValue);
+	});
+
+	function createParams (colorKey, colorValue) {
+	  colorsObj[colorKey] = colorValue;
+	  tempTxt = "php/css.php?" + $.param(colorsObj);
+	  $("#sheet1").attr("href", tempTxt);
+	};
+
   // bit.ly API configuration
 	var bitlyApi = {
 		requestUrl: 'http://api.bit.ly/v3/shorten',
