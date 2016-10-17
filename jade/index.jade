@@ -132,11 +132,15 @@ html(lang='en', dir='ltr')
       #editWindow input,
       #editWindow select {
         font-size: 16px;
-        padding: 7px;
+        padding: 10px;
         margin-bottom: 15px;
         color: #636262;
         font-family: Helvetica, Arial, Sans-serif;
         width: 260px;
+        background: #fff;
+        height: 40px;
+        border: 1px solid #e5e5e5;
+        border-radius: 3px;
       }
       #editWindow .c1,
       #editWindow .c2 {
@@ -150,7 +154,7 @@ html(lang='en', dir='ltr')
       }
       #editWindow.open { top:0;margin-left:0;}
       #editWindow .pull {border:none;z-index:2;}
-      #editWindow .pull p:after{position: relative;top: 11px;font-weight:600;font-size:20px;content: '+'}
+      #editWindow .pull p:after{position: relative;top: 8px;font-weight:600;font-size:20px;content: '+'}
       #editWindow.open .pull {left:0px;background: none;border-right: 1px solid #e5e5e5;}
       #editWindow.open .pull p:after {color:#d0d0d0;font-weight:600;font-size:20px;content: '-'}
       #editWindow.open .pull p:hover::after {
@@ -187,7 +191,7 @@ html(lang='en', dir='ltr')
         bottom: 0;
         left: 0;
         width: 40px !important;
-        height:38px;
+        height:35px;
       }
       .pull p {margin: 0 !important;}
       #homepage #additionalResources {
@@ -220,7 +224,7 @@ body
         p.demo-header-title Templated Sites Demo
       div.demo-settings
         //- p.demo-settings-title Settings
-        input#changeTitle(placeholder="Site Title")
+        input#changeTitle(placeholder="Site Title" value="Productivity and Collaboration")
         p Select Layout
           select#layoutChoice
             option(value="A", selected="selected") A: Additional Downloads
@@ -233,6 +237,7 @@ body
           input.c2(name="html5colorpicker-color2" type="color", id="html5colorpicker-color2", style="width:100%;")
       div.demo-footer
         button.demo-generate-pdf(onclick="javascript:generatePDF();") PDF
+        button.demo-generate-pdf(onclick="javascript:localStorage.clear();") Reset
     script(contenteditable).
       $('.pull').on('click', function() {
         $('#editWindow').toggleClass('open');
