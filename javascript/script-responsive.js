@@ -56,11 +56,24 @@ $(document).ready(function() {
 	});
 
     // Sales Tool UI updates
-    var windowHeight = document.documentElement.clientHeight;
-		$('#editWindow').css('height', windowHeight);
+    function adjustEditWindowSize() {
+        var windowHeight = $(window).outerHeight(),
+            headerHeight = $('.demo-header').outerHeight(),
+            footerHeight = $('.demo-footer').outerHeight(),
+            demoSettingsHeight = windowHeight - headerHeight - footerHeight;
+        $('#editWindow').css('height', windowHeight);
+        $('.demo-settings').css('height', (demoSettingsHeight));
+    }
+    adjustEditWindowSize();
 
     $( ".pull" ).on( "click", function() {
         openEditWindow();
+    });
+    // clear input on click of close icon
+    $(".icon-close").on( "click", function() {
+        if (("#changeTitle").length > 0) {
+            $("#changeTitle").attr('value','');
+        }
     });
 
     function openEditWindow() {
@@ -536,11 +549,12 @@ $(document).ready(function() {
 
   // on window resize
   $(window).on('resize', function(){
+    adjustEditWindowSize();
     navMath();
     menuPlugin();
     removeClasses();
     downloadResourcesConditional();
-		articleResourcesConditional();
+	articleResourcesConditional();
     topicAdditionalArticlesConditional();
   });
 
