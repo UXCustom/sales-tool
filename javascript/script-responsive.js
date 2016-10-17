@@ -1,11 +1,16 @@
 $(document).ready(function() {
 
+	// localStorage.clear();
+
 	colorsObj = new Object();
 
 	$("input[type=color]").change(function() {
 	  colorKey = $(this).attr('class');
 	  colorValue = $(this).val().replace("#", "");
 	  createParams(colorKey, colorValue);
+
+		var updatedCSS = $('#sheet1').attr('href');
+		localStorage.setItem('css', updatedCSS);
 	});
 
 	function createParams (colorKey, colorValue) {
@@ -13,6 +18,10 @@ $(document).ready(function() {
 	  tempTxt = "php/css.php?" + $.param(colorsObj);
 	  $("#sheet1").attr("href", tempTxt);
 	};
+
+	if (localStorage.getItem("css") != null) {
+		$("#sheet1").attr("href", localStorage.getItem('css'));
+	}
 
     // Sales Tool UI updates
     var windowHeight = document.documentElement.clientHeight;
