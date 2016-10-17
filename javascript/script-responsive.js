@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-	// localStorage.clear();
-
 	colorsObj = new Object();
 
 	$("input[type=color]").change(function() {
@@ -19,13 +17,47 @@ $(document).ready(function() {
 	  $("#sheet1").attr("href", tempTxt);
 	};
 
+	$('#changeTitle').on('input',function() {
+		$('.siteTitle').text($(this).val());
+		if ($(this).val() == '') {
+			$('.siteTitle').text('Productivity and Collaboration');
+		}
+
+		localStorage.setItem('title', $(this).val());
+	});
+
+	$('#layoutChoice').on('change', function() {
+		if ($('#layoutChoice option:selected').val() == 'A') {
+			$('#homepage #additionalResources').css('display','none');
+			$('#homepage #additionalDownloads, #resources').css('display','block');
+		} else {
+			$('#homepage #additionalDownloads, #resources').css('display','none');
+			$('#homepage #additionalResources').css('display','block');
+		}
+
+
+	});
+
 	if (localStorage.getItem("css") != null) {
 		$("#sheet1").attr("href", localStorage.getItem('css'));
 	}
 
+	if (localStorage.getItem("title") != null) {
+		var text = localStorage.getItem('title');
+		$('.siteTitle').text(text);
+		$('#changeTitle').val(text);
+	} else {
+		$('#changeTitle').val('Productivity and Collaboration');
+	}
+
+	$('.reset').on('click', function() {
+		localStorage.clear();
+		window.location.reload();
+	});
+
     // Sales Tool UI updates
     var windowHeight = document.documentElement.clientHeight;
-    document.getElementById("editWindow").style.height = windowHeight + "px";
+		$('#editWindow').css('height', windowHeight);
 
     $( ".pull" ).on( "click", function() {
         openEditWindow();
