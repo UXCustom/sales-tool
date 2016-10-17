@@ -98,7 +98,11 @@ html(lang='en', dir='ltr')
         margin-left: 135px;
         margin-top: 7px
       }
-      #editWindow .demo-generate-pdf {
+
+      #editWindow .demo-footer button {
+        border: none;
+      }
+      #editWindow .demo-footer button.demo-generate-pdf {
         border-left: 1px solid #e5e5e5;
         float: right;
         text-transform: uppercase;
@@ -106,8 +110,11 @@ html(lang='en', dir='ltr')
         color: #d0d0d0;
         font-weight: 600;
         font-size: 12px;
+        background: none;
+        right:0;
       }
-      #editWindow .demo-generate-pdf:hover {
+
+      #editWindow .demo-footer button.demo-generate-pdf:hover {
         color: #666;
       }
       #editWindow .demo-footer {
@@ -143,7 +150,7 @@ html(lang='en', dir='ltr')
       }
       #editWindow.open { top:0;margin-left:0;}
       #editWindow .pull {border:none;z-index:2;}
-      #editWindow .pull p:after{font-weight:600;font-size:20px;content: '+'}
+      #editWindow .pull p:after{position: relative;top: 11px;font-weight:600;font-size:20px;content: '+'}
       #editWindow.open .pull {left:0px;background: none;border-right: 1px solid #e5e5e5;}
       #editWindow.open .pull p:after {color:#d0d0d0;font-weight:600;font-size:20px;content: '-'}
       #editWindow.open .pull p:hover::after {
@@ -180,6 +187,7 @@ html(lang='en', dir='ltr')
         bottom: 0;
         left: 0;
         width: 40px !important;
+        height:38px;
       }
       .pull p {margin: 0 !important;}
       #homepage #additionalResources {
