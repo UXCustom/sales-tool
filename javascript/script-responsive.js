@@ -14,12 +14,30 @@ $(document).ready(function() {
 	  $("#sheet1").attr("href", tempTxt);
 	};
 
-  // bit.ly API configuration
-	var bitlyApi = {
-		requestUrl: 'http://api.bit.ly/v3/shorten',
-		login: 'uxtechtarget',
-		key: 'R_3711c9f9013670f25d70b047c8deb6f2'
-	};
+    // Sales Tool UI updates
+    var windowHeight = document.documentElement.clientHeight;
+    document.getElementById("editWindow").style.height = windowHeight + "px";
+
+    $( ".pull" ).on( "click", function() {
+        openEditWindow();
+    });
+
+    function openEditWindow() {
+        var editWindow = $("#editWindow");
+        var micrositeWrapper = $("#micrositeWrapper");
+        if(editWindow.hasClass('open')) {
+            micrositeWrapper.addClass('editWindowOpen').css('left','300px').css('position','relative');
+        } else {
+            micrositeWrapper.removeClass('editWindowOpen').css('left','0').css('position','relative');
+        }
+    }
+
+	// bit.ly API configuration
+      var bitlyApi = {
+        requestUrl: 'http://api.bit.ly/v3/shorten',
+        login: 'uxtechtarget',
+        key: 'R_3711c9f9013670f25d70b047c8deb6f2'
+      };
 
   var shortenUrl = function (urlToShorten, callback) {
     this.shortenUrlPromise(urlToShorten).done(function (url) {

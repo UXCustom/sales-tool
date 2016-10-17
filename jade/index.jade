@@ -112,6 +112,10 @@ html(lang='en', dir='ltr')
       }
       #editWindow .demo-footer {
         border-top: 1px solid #e5e5e5;
+        bottom: 0;
+        position: absolute;
+        display: block;
+        width: 100%;
       }
       #editWindow > div > p {
         color: #9b9a9a;
@@ -125,6 +129,7 @@ html(lang='en', dir='ltr')
         margin-bottom: 15px;
         color: #636262;
         font-family: Helvetica, Arial, Sans-serif;
+        width: 260px;
       }
       #editWindow .c1,
       #editWindow .c2 {
@@ -137,21 +142,31 @@ html(lang='en', dir='ltr')
         font-family: Helvetica, Arial, Sans-serif;
       }
       #editWindow.open { top:0;margin-left:0;}
-      #editWindow .pull {left:300px;border:none;}
+      #editWindow .pull {border:none;z-index:2;}
       #editWindow .pull p:after{font-weight:600;font-size:20px;content: '+'}
       #editWindow.open .pull {left:0px;background: none;border-right: 1px solid #e5e5e5;}
       #editWindow.open .pull p:after {color:#d0d0d0;font-weight:600;font-size:20px;content: '-'}
       #editWindow.open .pull p:hover::after {
         color: #666;
       }
-      #editWindow.open > #micrositeWrapper {
-        margin-left:300px;
+      #editWindow,
+      #micrositeWrapper {
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
       }
+
+      #micrositeWrapper {
+        position: relative;
+        left:0;
+      }
+
       body style, body > #micrositeWrapper > #editWindow > script {
         display: block;
         overflow-x: scroll;
         white-space: pre;
       }
+      body {position: relative;}
       .pull {
         background: #333;
         color: #fff;
@@ -160,7 +175,7 @@ html(lang='en', dir='ltr')
         float: none;
         font-size: 20px;
         line-height: 1;
-        position: absolute;
+        position: fixed;
         text-align: center;
         bottom: 0;
         left: 0;
