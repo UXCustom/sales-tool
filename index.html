@@ -165,7 +165,7 @@
       }
       #editWindow.open { top:0;margin-left:0;}
       #editWindow .pull {position: fixed;border:none;z-index:2;}
-      #editWindow .pull p:after{top:2px;position: relative;font-weight:600;font-size:20px;content: '+'}
+      #editWindow .pull p:after{top:8px;position: relative;font-weight:600;font-size:20px;content: '+'}
       #editWindow.open .pull {position:initial;left:0px;background: none;border-right: 1px solid #e5e5e5;}
       #editWindow.open .pull p:after {color:#d0d0d0;font-weight:600;font-size:20px;content: '-'}
       #editWindow.open .pull p:hover::after {
@@ -187,32 +187,10 @@
       }
       
       #editWindow,
-      #micrositeWrapper,
-      #articleHeader,
-      #articleNavigationContainer{
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-      }
-      
-      #micrositeWrapper.editWindowOpen,
-      #articleHeader.editWindowOpen,
-      #articleNavigationContainer.editWindowOpen {
-        position:relative;
-        left:300px;}
-        
-      #articleHeader.editWindowOpened,
-      #articleNavigationContainer.editWindowOpened {
-        position:fixed;
-        left: 300px;
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-      }
-      
       #micrositeWrapper {
-        position: relative;
-        left:0;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
       }
       
       body style, body > #micrositeWrapper > #editWindow > script {
@@ -382,9 +360,6 @@
           }
           doc.save('TechTarget-StandAloneSite.pdf')
           $('#editWindow').show();
-          $('#micrositeWrapper').css('left','300px');
-          $('#articleHeader').css('left', '300px');
-          $('#articleNavigationContainer').css('left', '300px');
         }
       });
     }

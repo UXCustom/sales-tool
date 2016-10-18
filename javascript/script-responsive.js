@@ -131,20 +131,11 @@ $(document).ready(function() {
     });
 
     function openEditWindow() {
-        var editWindow = $("#editWindow"),
-            micrositeWrapper = $("#micrositeWrapper"),
-            articleHeader = $("#articleHeader"),
-            articleNav =  $("#articleNavigationContainer");
+        var editWindow = $("#editWindow");
         if(editWindow.hasClass('open')) {
             micrositeWrapper.addClass('editWindowOpen');
-            //setTimeout(function(){
-                articleHeader.addClass('editWindowOpened');
-                articleNav.addClass('editWindowOpened');
-            //}, 0.3);
         } else {
             micrositeWrapper.removeClass('editWindowOpen');
-            articleHeader.removeClass('editWindowOpened');
-            articleNav.removeClass('editWindowOpened');
         }
     }
 
