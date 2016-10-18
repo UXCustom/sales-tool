@@ -77,12 +77,20 @@ $(document).ready(function() {
     });
 
     function openEditWindow() {
-        var editWindow = $("#editWindow");
-        var micrositeWrapper = $("#micrositeWrapper");
+        var editWindow = $("#editWindow"),
+            micrositeWrapper = $("#micrositeWrapper"),
+            articleHeader = $("#articleHeader"),
+            articleNav =  $("#articleNavigationContainer");
         if(editWindow.hasClass('open')) {
-            micrositeWrapper.addClass('editWindowOpen').css('left','300px').css('position','relative');
+            micrositeWrapper.addClass('editWindowOpen');
+            //setTimeout(function(){
+                articleHeader.addClass('editWindowOpened');
+                articleNav.addClass('editWindowOpened');
+            //}, 0.3);
         } else {
-            micrositeWrapper.removeClass('editWindowOpen').css('left','0').css('position','relative');
+            micrositeWrapper.removeClass('editWindowOpen');
+            articleHeader.removeClass('editWindowOpened');
+            articleNav.removeClass('editWindowOpened');
         }
     }
 
