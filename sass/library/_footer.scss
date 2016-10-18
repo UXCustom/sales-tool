@@ -37,6 +37,7 @@ footer {
         }
 
         &:nth-of-type(2) {
+          display: none;
           img {width: $logo2Width}
         }
       }
