@@ -1626,6 +1626,12 @@ i {
 #articleHeader #articleSponsorContainer ul li:nth-of-type(2) img {
   width: 134px;
 }
+#articleHeader #articleSponsorContainer ul.twoClients {
+  display: none;
+}
+#articleHeader #articleSponsorContainer ul.twoClients li:nth-of-type(1) img {
+  width: 140px;
+}
 #articleHeader #articleSponsorContainer.nav-up {
   top: -40px;
 }
@@ -1659,11 +1665,14 @@ i {
     height: 55px;
     top: 55px;
   }
-  #articleHeader #articleSponsorContainer ul {
+  #articleHeader #articleSponsorContainer ul.oneClient {
     margin-top: 8px;
   }
-  #articleHeader #articleSponsorContainer ul li:nth-of-type(1) img {
+  #articleHeader #articleSponsorContainer ul.oneClient li:nth-of-type(1) img {
     width: 150px;
+  }
+  #articleHeader #articleSponsorContainer ul.twoClients {
+    margin-top: 10px;
   }
 }
 @media (min-width: 960px) {
@@ -1706,15 +1715,22 @@ i {
     top: 22px;
     width: auto;
   }
-  #articleHeader #articleSponsorContainer ul {
+  #articleHeader #articleSponsorContainer ul.oneClient {
     left: inherit;
     margin-top: 0;
   }
-  #articleHeader #articleSponsorContainer ul li {
+  #articleHeader #articleSponsorContainer ul.oneClient li {
     right: inherit;
   }
-  #articleHeader #articleSponsorContainer ul li:nth-of-type(1) img {
+  #articleHeader #articleSponsorContainer ul.oneClient li:nth-of-type(1) img {
     width: 170px;
+  }
+  #articleHeader #articleSponsorContainer ul.twoClients {
+    left: inherit;
+    margin-top: 5px;
+  }
+  #articleHeader #articleSponsorContainer ul.twoClients li {
+    right: inherit;
   }
   #articleHeader #articleSponsorContainer.nav-up {
     top: 22px;
@@ -1731,8 +1747,14 @@ i {
   #articleHeader #articleSponsorContainer {
     top: 16px;
   }
-  #articleHeader #articleSponsorContainer ul li:nth-of-type(1) img {
+  #articleHeader #articleSponsorContainer ul.oneClient li:nth-of-type(1) img {
     width: 210px;
+  }
+  #articleHeader #articleSponsorContainer ul.twoClients {
+    margin-top: 10px;
+  }
+  #articleHeader #articleSponsorContainer ul.twoClients li:nth-of-type(1) img {
+    width: 140px;
   }
   #articleHeader #articleSponsorContainer.nav-up {
     top: 16px;

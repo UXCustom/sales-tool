@@ -284,10 +284,12 @@
       <div class="c1">
         <label for="html5colorpicker-color1">Color 1</label>
         <input name="html5colorpicker-color1" type="color" id="html5colorpicker-color1" style="width:100%;" class="c1">
+        <p class="colorText1"></p>
       </div>
       <div class="c2">
         <label for="html5colorpicker-color2">Color 2</label>
         <input name="html5colorpicker-color2" type="color" id="html5colorpicker-color2" style="width:100%;" class="c2">
+        <p class="colorText2"></p>
       </div>
     </div>
     <div class="demo-footer">
@@ -302,9 +304,9 @@
     $('.pull').on('click', function() {
       $('#editWindow').toggleClass('open');
     });
-    $(".c1, .c2").spectrum({
+    $(".c1").spectrum({
         allowEmpty:true,
-        color: "#ECC",
+        color: "#03a9f4",
         showInput: true,
         containerClassName: "full-spectrum",
         showInitial: true,
@@ -315,6 +317,25 @@
         preferredFormat: "hex",
         localStorageKey: "spectrum.demo"
     });
+    $(".c2").spectrum({
+        allowEmpty:true,
+        color: "#ff9800",
+        showInput: true,
+        containerClassName: "full-spectrum",
+        showInitial: true,
+        showPalette: true,
+        showSelectionPalette: true,
+        //- showAlpha: true,
+        maxPaletteSize: 10,
+        preferredFormat: "hex",
+        localStorageKey: "spectrum.demo"
+    });
+    
+    var colorValue1 = $(".c1").spectrum("get");
+    var colorValue2 = $(".c2").spectrum("get");
+    
+    $('p.colorText1').text(colorValue1);
+    $('p.colorText2').text(colorValue2);
     
     $('#changeTitle').on('input',function() {
       $('.siteTitle').text($(this).val());
@@ -376,8 +397,12 @@
           <p><a href="index.html" class="siteTitle">Productivity and Collaboration</a></p><a class="socialButton st-color1"><i class="icon-share"></i></a>
         </div>
         <div id="articleSponsorContainer">
-          <ul>
+          <ul class="oneClient">
             <li><a href="http://www.techtarget.com"><img src="images/clientLogo1.png"></a></li>
+          </ul>
+          <ul class="twoClients">
+            <li><a href="http://www.techtarget.com"><img src="images/clientLogo3.png"></a></li>
+            <li><a href="http://www.techtarget.com"><img src="images/clientLogo2.png"></a></li>
           </ul>
         </div>
         <nav id="articleSocialNav">

@@ -9,6 +9,12 @@ $(document).ready(function() {
 
 		var updatedCSS = $('#sheet1').attr('href');
 		localStorage.setItem('css', updatedCSS);
+
+		var colorValue1 = $(".c1").spectrum("get");
+		var colorValue2 = $(".c2").spectrum("get");
+
+		$('p.colorText1').text(colorValue1);
+		$('p.colorText2').text(colorValue2);
 	});
 
 	function createParams (colorKey, colorValue) {
@@ -30,18 +36,62 @@ $(document).ready(function() {
 		if ($('#layoutChoice option:selected').val() == 'A') {
 			$('#homepage #additionalResources').css('display','none');
 			$('#homepage #additionalDownloads, #resources').css('display','block');
+
+			localStorage.setItem('layout', 'A');
 		} else {
 			$('#homepage #additionalDownloads, #resources').css('display','none');
 			$('#homepage #additionalResources').css('display','block');
+
+			localStorage.setItem('layout', 'B');
 		}
-
-
 	});
 
+	$('#clientChoice').on('change', function() {
+		if ($('#clientChoice option:selected').val() == 'A') {
+			$('#articleHeader #articleSponsorContainer ul.twoClients').css('display','none');
+			$('#articleHeader #articleSponsorContainer ul.oneClient').css('display','block');
+
+			localStorage.setItem('client', 'A');
+		} else {
+			$('#articleHeader #articleSponsorContainer ul.twoClients').css('display','block');
+			$('#articleHeader #articleSponsorContainer ul.oneClient').css('display','none');
+
+			localStorage.setItem('client', 'B');
+		}
+	});
+
+	// Local Storage for client choice
+	if (localStorage.getItem("client") != null) {
+		if (localStorage.getItem("client") == 'A') {
+			$('#articleHeader #articleSponsorContainer ul.twoClients').css('display','none');
+			$('#articleHeader #articleSponsorContainer ul.oneClient').css('display','block');
+			$('#clientChoice option').eq(0).prop('selected', true);
+		} else {
+			$('#articleHeader #articleSponsorContainer ul.twoClients').css('display','block');
+			$('#articleHeader #articleSponsorContainer ul.oneClient').css('display','none');
+			$('#clientChoice option').eq(1).prop('selected', true);
+		}
+	}
+
+	// Local Storage for Layout Config
+	if (localStorage.getItem("layout") != null) {
+		if (localStorage.getItem("layout") == 'A') {
+			$('#homepage #additionalResources').css('display','none');
+			$('#homepage #additionalDownloads, #resources').css('display','block');
+			$('#layoutChoice option').eq(0).prop('selected', true);
+		} else {
+			$('#homepage #additionalDownloads, #resources').css('display','none');
+			$('#homepage #additionalResources').css('display','block');
+			$('#layoutChoice option').eq(1).prop('selected', true);
+		}
+	}
+
+	// Local Storage to set css color values
 	if (localStorage.getItem("css") != null) {
 		$("#sheet1").attr("href", localStorage.getItem('css'));
 	}
 
+	// Local Storage to set the title
 	if (localStorage.getItem("title") != null) {
 		var text = localStorage.getItem('title');
 		$('.siteTitle').text(text);
