@@ -6,22 +6,22 @@ html(lang='en', dir='ltr')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title TechTarget
     //if lte IE 7
-      script(src='http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/icomoon_ie7.js')
-    script(type='text/javascript', src='http://fast.fonts.net/jsapi/124d48dd-e515-4302-8bfb-1d5c1e3da916.js')
-    link(rel='stylesheet', href='http://cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/normalize.css')
-    link(rel='stylesheet', href='http://cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/icomoon.css')
-    link(rel='stylesheet', href='http://cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/jquery.jscrollpane.css')
-    link(rel='stylesheet', href='http://cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/jquery-ui-1.10.3.custom.min.css')
-    link(rel='stylesheet', href='http://cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/responsive-carousel.css')
-    link(rel='stylesheet', href='http://cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/responsive-carousel.slide.css')
-    link(rel='stylesheet', href='http://media.eng.ttgtmedia.com/rms/ux/responsive/css/main.css?v=6.32-SNAPSHOT')
+      script(src='//cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/icomoon_ie7.js')
+    script(type='text/javascript', src='//fast.fonts.net/jsapi/124d48dd-e515-4302-8bfb-1d5c1e3da916.js')
+    link(rel='stylesheet', href='//cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/normalize.css')
+    link(rel='stylesheet', href='//cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/icomoon.css')
+    link(rel='stylesheet', href='//cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/jquery.jscrollpane.css')
+    link(rel='stylesheet', href='//cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/jquery-ui-1.10.3.custom.min.css')
+    link(rel='stylesheet', href='//cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/responsive-carousel.css')
+    link(rel='stylesheet', href='//cdn.ttgtmedia.com/microsites/ttgtShell/css/libs/responsive-carousel.slide.css')
+    link(rel='stylesheet', href='//media.eng.ttgtmedia.com/rms/ux/responsive/css/main.css?v=6.32-SNAPSHOT')
     //if lte IE 7
-      link(rel='stylesheet', href='http://cdn.ttgtmedia.com/microsites/ttgtShell/css/ie7.css')
+      link(rel='stylesheet', href='//cdn.ttgtmedia.com/microsites/ttgtShell/css/ie7.css')
     //if IE 8
-      link(rel='stylesheet', href='http://cdn.ttgtmedia.com/microsites/ttgtShell/css/ie8.css')
-    script(src='http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/respond.min.js', type='text/javascript')
-    script(type='text/javascript', src='http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/modernizr.custom.50545.js')
-    script(src='http://cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery-1.10.1.min.js')
+      link(rel='stylesheet', href='//cdn.ttgtmedia.com/microsites/ttgtShell/css/ie8.css')
+    script(src='//cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/respond.min.js', type='text/javascript')
+    script(type='text/javascript', src='//cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/modernizr.custom.50545.js')
+    script(src='//cdn.ttgtmedia.com/microsites/ttgtShell/js/libs/jquery-1.10.1.min.js')
     link(rel='shortcut icon', type='image/x-icon', href='/favicon.ico')
     link(rel='apple-touch-icon', sizes='144×144', href='/apple-touch-icon-144x144.png')
     link(rel='apple-touch-icon', sizes='114×114', href='/apple-touch-icon-114x114.png')
@@ -213,7 +213,7 @@ html(lang='en', dir='ltr')
         width: 40px !important;
         height:35px;
       }
-      .pull p {margin: 0 !important;}
+      .pull p {line-height:1; margin: 0 !important;}
       #homepage #additionalResources {
         display: none;
       }
@@ -238,7 +238,7 @@ html(lang='en', dir='ltr')
 body
     #editWindow
       div.demo-header
-        img(src="http://cdn.ttgtmedia.com/rms/ux/responsive/img/nav_logo@2x.png" alt="TechTarget")
+        img(src="//cdn.ttgtmedia.com/rms/ux/responsive/img/nav_logo@2x.png" alt="TechTarget")
         p.demo-header-title Templated Sites Demo
       div.demo-settings
         //- p.demo-settings-title Settings
@@ -246,14 +246,14 @@ body
           input#changeTitle(placeholder="Site Title" value="Productivity and Collaboration")
           a.clear-input
             i.icon-close
+        p Number of Clients
+          select#clientChoice
+            option(value="A", selected="selected") Single Client
+            option(value="B") Two Clients
         p Select Layout
           select#layoutChoice
             option(value="A", selected="selected") A: Additional Downloads
             option(value="B") B: Latest Resources
-        p Select Clients
-          select#clientChoice
-            option(value="A", selected="selected") A: 1 Client
-            option(value="B") B: Two Clients
         .c1
           label(for="html5colorpicker-color1") Color 1
           input.c1(name="html5colorpicker-color1" type="color", id="html5colorpicker-color1", style="width:100%;")
@@ -361,4 +361,4 @@ body
       include pageSections/footer
     script(src="javascript/jquery.menu-aim.js")
     script(src="//players.brightcove.net/1660622130/SJJxTCbc_default/index.min.js")
-    script(src="http://cdn.ttgtmedia.com/rms/ux/javascript/microsite/videojs.ga.videocloud.js")
+    script(src="//cdn.ttgtmedia.com/rms/ux/javascript/microsite/videojs.ga.videocloud.js")
