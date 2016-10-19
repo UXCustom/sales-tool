@@ -131,7 +131,8 @@ $(document).ready(function() {
     });
 
     function openEditWindow() {
-        var editWindow = $("#editWindow");
+        var editWindow = $("#editWindow"),
+						micrositeWrapper = $('#micrositeWrapper');
         if(editWindow.hasClass('open')) {
             micrositeWrapper.addClass('editWindowOpen');
         } else {
