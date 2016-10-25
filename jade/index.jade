@@ -156,6 +156,12 @@ html(lang='en', dir='ltr')
       #editWindow .c1,
       #editWindow .c2 {
         padding-bottom: 15px;
+        width: 49%;
+        display: inline-block;
+      }
+      #editWindow .colorText1,
+      #editWindow .colorText2 {
+        color: #5f5f5f;
       }
       #editWindow p,
       #editWindow li {
@@ -220,7 +226,7 @@ html(lang='en', dir='ltr')
       .sp-replacer {
         border-color: #e2e2e2;
         background: #fff;
-        margin-left: 10px;
+        margin-right: 10px;
       }
       .sp-replacer:hover {
         border-color: #999;
@@ -242,11 +248,11 @@ body
         p.demo-header-title Templated Sites Demo
       div.demo-settings
         //- p.demo-settings-title Settings
-        p Site Title
-          input#changeTitle(placeholder="Site Title" value="Productivity and Collaboration")
+        p Change Site Title
+          input#changeTitle(placeholder="Change Site Title" value="Productivity and Collaboration")
           a.clear-input
             i.icon-close
-        p Number of Clients
+        p Select Number of Clients
           select#clientChoice
             option(value="A", selected="selected") Single Client
             option(value="B") Two Clients
@@ -255,13 +261,13 @@ body
             option(value="A", selected="selected") A: Additional Downloads
             option(value="B") B: Latest Resources
         .c1
-          label(for="html5colorpicker-color1") Color 1
+          label(for="html5colorpicker-color1") Pick Color 1
           input.c1(name="html5colorpicker-color1" type="color", id="html5colorpicker-color1", style="width:100%;")
-          p.colorText1
+          span.colorText1
         .c2
-          label(for="html5colorpicker-color2") Color 2
+          label(for="html5colorpicker-color2") Pick Color 2
           input.c2(name="html5colorpicker-color2" type="color", id="html5colorpicker-color2", style="width:100%;")
-          p.colorText2
+          span.colorText2
       div.demo-footer
         button.demo-footer-button.demo-button-pdf(onclick="javascript:generatePDF();") PDF
         button.demo-footer-button.demo-button-reset.reset Reset
@@ -301,8 +307,8 @@ body
       var colorValue1 = $(".c1").spectrum("get");
       var colorValue2 = $(".c2").spectrum("get");
       
-      $('p.colorText1').text(colorValue1);
-      $('p.colorText2').text(colorValue2);
+      $('span.colorText1').text(colorValue1);
+      $('span.colorText2').text(colorValue2);
       
       $('#changeTitle').on('input',function() {
         $('.siteTitle').text($(this).val());
