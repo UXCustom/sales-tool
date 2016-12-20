@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 	colorsObj = new Object();
 
+
 	$("input[type=color]").change(function() {
 	  colorKey = $(this).attr('class');
 	  colorValue = $(this).val().replace("#", "");
@@ -17,7 +18,34 @@ $(document).ready(function() {
 		$('p.colorText2').text(colorValue2);
 	});
 
-	function createParams (colorKey, colorValue) {
+    // Functionality to switch between the sales tools
+    function switchSiteType () {
+        var siteTypes = [
+            {
+                "id": "1",
+                "name": "article",
+                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/articleBased/sales-tool/"
+            },
+            {
+                "id": "2",
+                "name": "embedded",
+                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/embedded/"
+            }
+        ];
+        var totalSiteTypes = $(siteTypes).length;
+        $("#siteType").change(function() {
+            var selectedOptionValue = $("#siteType option:selected").val();
+            for (i = 0; i < totalSiteTypes; i++) {
+                var option = siteTypes[i];
+                if (option.id === selectedOptionValue) {
+                    window.open (siteTypes[i].url,'_self',false);
+                }
+            }
+        });
+    }
+    switchSiteType();
+
+    function createParams (colorKey, colorValue) {
 	  colorsObj[colorKey] = colorValue;
 	  tempTxt = "php/css.php?" + $.param(colorsObj);
 	  $("#sheet1").attr("href", tempTxt);
@@ -325,7 +353,6 @@ $(document).ready(function() {
     }
     body.removeClass('socialMenuOpen');
   }
-
   function openSocialMenu() {
     if(body.hasClass('topicsMenuOpen')) {
       setTimeout(function(){
@@ -338,11 +365,9 @@ $(document).ready(function() {
     $('.hamburger').removeClass('is-active');
     body.removeClass('topicsMenuOpen');
   }
-
   function openTopicsMenu() {
     $('#articleNavigation').toggleClass('showMainNav');
   }
-
   function openResourcesMenu() {
     $('#articleResourcesNav').toggleClass('showReourcesNav');
   }
@@ -495,7 +520,7 @@ $(document).ready(function() {
       }
     });
   }
-	function articleResourcesConditional() {
+  function articleResourcesConditional() {
     $('#articleResources .listContainer').each(function() {
 			if ($(window).width() < 640) {
 				if ($('ul li',this).length < 3) {
