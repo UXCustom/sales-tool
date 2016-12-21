@@ -18,8 +18,9 @@ $(document).ready(function() {
 		$('p.colorText2').text(colorValue2);
 	});
 
-    // Functionality to switch between the sales tools
-    function switchSiteType () {
+    // start Site Type Nav functionality
+    $(".demo-site-nav-list li:first-child").addClass('selected');
+    var switchSiteType = function(oldSelection) {
         var siteTypes = [
             {
                 "id": "1",
@@ -28,22 +29,76 @@ $(document).ready(function() {
             },
             {
                 "id": "2",
-                "name": "embedded",
-                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/embedded/"
+                "name": "embeddedCenter",
+                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/embedded/Center"
+            },
+            {
+                "id": "3",
+                "name": "embeddedDark",
+                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/embedded/Dark"
+            },
+            {
+                "id": "4",
+                "name": "embeddedLight",
+                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/embedded/Light"
             }
         ];
         var totalSiteTypes = $(siteTypes).length;
-        $("#siteType").change(function() {
-            var selectedOptionValue = $("#siteType option:selected").val();
-            for (i = 0; i < totalSiteTypes; i++) {
-                var option = siteTypes[i];
-                if (option.id === selectedOptionValue) {
-                    window.open (siteTypes[i].url,'_self',false);
-                }
+        var newSelection = $(".demo-site-nav-list-item.selected").attr("data-id");
+        for (i = 0; i < totalSiteTypes; i++) {
+            var option = siteTypes[i];
+            if ((option.id === newSelection) && (option.id != oldSelection)) {
+                window.open (siteTypes[i].url,'_self',false);
             }
+        }
+    }
+    var hideSiteTypeNotSelected = function() {
+        if($(".demo-site-nav-list li").hasClass('selected')){
+            $(".demo-site-nav-list-item").hide();
+            $(".demo-site-nav-list-item.selected").show();
+        }
+    }
+    var showSiteTypeNav = function() {
+        $(".demo-site-nav-list-item").show();
+        $(".demo-site-nav").removeClass("hide").addClass("show");
+        $('.demo-site-nav .icon').removeClass("icon-arrow-down").addClass("icon-arrow-up");
+    }
+    var hideSiteTypeNav = function() {
+        hideSiteTypeNotSelected();
+        $(".demo-site-nav").removeClass("show").addClass("hide");
+        $('.demo-site-nav .icon').removeClass("icon-arrow-up").addClass("icon-arrow-down");
+    }
+
+    var toggleMenuOnArrowClick = function() {
+        $(".demo-site-nav .icon").on("mousedown", function(){
+            if ($('.demo-site-nav').hasClass("hide")) {
+                showSiteTypeNav();
+            }
+            else {
+                hideSiteTypeNav();
+            }
+        })
+
+    }
+    var userSelectsSiteType = function() {
+        $('.demo-site-nav-list-item').on('mousedown',function() {
+            var oldSelection = $(".demo-site-nav-list-item.selected").attr("data-id");
+            $(".demo-site-nav-list-item").removeClass("selected");
+            $(this).addClass("selected");
+            switchSiteType(oldSelection);
+            //hideSiteTypeNav();
+            $(".demo-site-nav").removeClass("show").addClass("hide");
+            $('.demo-site-nav .icon').removeClass("icon-arrow-up").addClass("icon-arrow-down");
+            hideSiteTypeNotSelected();
         });
     }
-    switchSiteType();
+
+    hideSiteTypeNotSelected();
+    userSelectsSiteType();
+    toggleMenuOnArrowClick();
+    // end Site Type Nav functionality
+
+
 
     function createParams (colorKey, colorValue) {
 	  colorsObj[colorKey] = colorValue;

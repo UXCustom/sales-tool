@@ -99,7 +99,35 @@
         margin-left: 135px;
         margin-top: 7px
       }
-      
+      #editWindow .demo-site-nav {
+          color: #fff;
+          background: #e4e4e4;
+          line-height: 1.2em;
+          position: relative;
+      }
+      #editWindow .demo-site-nav li {
+          font-weight: 600;
+          font-size: 15px;
+          height: 40px;
+          padding: 0 20px;
+          line-height: 40px;
+      }
+      #editWindow .demo-site-nav.show li:hover {
+          background: #fff;
+          color: #00b3ac;
+          cursor: pointer;
+      }
+      #editWindow .demo-site-nav .icon {
+          color: #00b3ac;
+          position: absolute;
+          right: 20px;
+          top: 13px;
+          cursor: pointer;
+      }
+      #editWindow .demo-site-nav .icon:hover {
+          color: #13564d;
+      }
+
       #editWindow .demo-footer {
         border-top: 1px solid #e5e5e5;
         left:0;
@@ -242,6 +270,12 @@
       .sp-dd {
         color: #b3b3b3;
       }
+      #editWindow .demo-site-nav .icon.icon-arrow-up  {
+          -ms-transform:rotate(180deg);
+          -moz-transform:rotate(180deg);
+          -webkit-transform:rotate(180deg);
+          transform:rotate(180deg);
+      }
       
     </style>
   </head>
@@ -251,13 +285,16 @@
     <div class="demo-header"><img src="http://cdn.ttgtmedia.com/rms/ux/responsive/img/nav_logo@2x.png" alt="TechTarget">
       <p class="demo-header-title">Templated Sites Demo</p>
     </div>
+    <div class="demo-site-nav hide">
+      <ul class="demo-site-nav-list">
+          <li data-id="1" class="demo-site-nav-list-item">Article</li>
+          <li data-id="2" class="demo-site-nav-list-item">Embedded - Center</li>
+          <li data-id="3" class="demo-site-nav-list-item">Embedded - Dark</li>
+          <li data-id="4" class="demo-site-nav-list-item">Embedded - Light</li>
+      </ul>
+      <i class="icon icon-arrow-down" data-icon="5"></i>
+    </div>
     <div class="demo-settings">
-      <p>Select Site Type
-        <select id="siteType">
-          <option value="1" selected="selected">Article</option>
-          <option value="2">Embedded</option>
-        </select>
-      </p>
       <p>Change Site Title
         <input id="changeTitle" placeholder="Change Site Title" value="Productivity and Collaboration"><a class="clear-input"><i class="icon-close"></i></a>
       </p>
