@@ -18,88 +18,6 @@ $(document).ready(function() {
 		$('p.colorText2').text(colorValue2);
 	});
 
-    // start Site Type Nav functionality
-    $(".demo-site-nav-list li:first-child").addClass('selected');
-    var switchSiteType = function(oldSelection) {
-        var siteTypes = [
-            {
-                "id": "1",
-                "name": "article",
-                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/articleBased/sales-tool/"
-            },
-            {
-                "id": "2",
-                "name": "embeddedCenter",
-                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/embedded/Center"
-            },
-            {
-                "id": "3",
-                "name": "embeddedDark",
-                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/embedded/Dark"
-            },
-            {
-                "id": "4",
-                "name": "embeddedLight",
-                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/embedded/Light"
-            }
-        ];
-        var totalSiteTypes = $(siteTypes).length;
-        var newSelection = $(".demo-site-nav-list-item.selected").attr("data-id");
-        for (i = 0; i < totalSiteTypes; i++) {
-            var option = siteTypes[i];
-            if ((option.id === newSelection) && (option.id != oldSelection)) {
-                window.open (siteTypes[i].url,'_self',false);
-            }
-        }
-    }
-    var hideSiteTypeNotSelected = function() {
-        if($(".demo-site-nav-list li").hasClass('selected')){
-            $(".demo-site-nav-list-item").hide();
-            $(".demo-site-nav-list-item.selected").show();
-        }
-    }
-    var showSiteTypeNav = function() {
-        $(".demo-site-nav-list-item").show();
-        $(".demo-site-nav").removeClass("hide").addClass("show");
-        $('.demo-site-nav .icon').removeClass("icon-arrow-down").addClass("icon-arrow-up");
-    }
-    var hideSiteTypeNav = function() {
-        hideSiteTypeNotSelected();
-        $(".demo-site-nav").removeClass("show").addClass("hide");
-        $('.demo-site-nav .icon').removeClass("icon-arrow-up").addClass("icon-arrow-down");
-    }
-
-    var toggleMenuOnArrowClick = function() {
-        $(".demo-site-nav .icon").on("mousedown", function(){
-            if ($('.demo-site-nav').hasClass("hide")) {
-                showSiteTypeNav();
-            }
-            else {
-                hideSiteTypeNav();
-            }
-        })
-
-    }
-    var userSelectsSiteType = function() {
-        $('.demo-site-nav-list-item').on('mousedown',function() {
-            var oldSelection = $(".demo-site-nav-list-item.selected").attr("data-id");
-            $(".demo-site-nav-list-item").removeClass("selected");
-            $(this).addClass("selected");
-            switchSiteType(oldSelection);
-            //hideSiteTypeNav();
-            $(".demo-site-nav").removeClass("show").addClass("hide");
-            $('.demo-site-nav .icon').removeClass("icon-arrow-up").addClass("icon-arrow-down");
-            hideSiteTypeNotSelected();
-        });
-    }
-
-    hideSiteTypeNotSelected();
-    userSelectsSiteType();
-    toggleMenuOnArrowClick();
-    // end Site Type Nav functionality
-
-
-
     function createParams (colorKey, colorValue) {
 	  colorsObj[colorKey] = colorValue;
 	  tempTxt = "php/css.php?" + $.param(colorsObj);
@@ -222,6 +140,89 @@ $(document).ready(function() {
             micrositeWrapper.removeClass('editWindowOpen');
         }
     }
+
+    // start Site Type Nav functionality
+    var switchSiteType = function(oldSelection) {
+        var siteTypes = [
+            {
+                "id": "1",
+                "name": "article",
+                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/articleBased/sales-tool/"
+            },
+            {
+                "id": "2",
+                "name": "embeddedCenter",
+                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/embedded/Center"
+            },
+            {
+                "id": "3",
+                "name": "embeddedDark",
+                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/embedded/Dark"
+            },
+            {
+                "id": "4",
+                "name": "embeddedLight",
+                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/embedded/Light"
+            },
+            {
+                "id": "5",
+                "name": "nativeAd",
+                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/native/"
+            }
+        ];
+        var totalSiteTypes = $(siteTypes).length;
+        var newSelection = $(".demo-site-nav-list-item.selected").attr("data-id");
+        for (i = 0; i < totalSiteTypes; i++) {
+            var option = siteTypes[i];
+            if ((option.id === newSelection) && (option.id != oldSelection)) {
+                window.open (siteTypes[i].url,'_self',false);
+            }
+        }
+    }
+    var hideSiteTypeNotSelected = function() {
+        if($(".demo-site-nav-list li").hasClass('selected')){
+            $(".demo-site-nav-list-item").hide();
+            $(".demo-site-nav-list-item.selected").show();
+        }
+    }
+    var showSiteTypeNav = function() {
+        $(".demo-site-nav-list-item").show();
+        $(".demo-site-nav").removeClass("hideNav").addClass("show");
+        $('.demo-site-nav .icon').removeClass("icon-arrow-down").addClass("icon-arrow-up");
+    }
+    var hideSiteTypeNav = function() {
+        hideSiteTypeNotSelected();
+        $(".demo-site-nav").removeClass("show").addClass("hideNav");
+        $('.demo-site-nav .icon').removeClass("icon-arrow-up").addClass("icon-arrow-down");
+    }
+    var toggleMenuOnArrowClick = function() {
+        $(".demo-site-nav-list-item.selected, .demo-site-nav .icon").on("mousedown", function(){
+            if ($('.demo-site-nav').hasClass("hideNav")) {
+                showSiteTypeNav();
+            }
+            else {
+                hideSiteTypeNav();
+            }
+        })
+
+    }
+    var userSelectsSiteType = function() {
+        $('.demo-site-nav-list-item:not(.selected)').on('mousedown',function() {
+            var oldSelection = $(".demo-site-nav-list-item.selected").attr("data-id");
+            $(".demo-site-nav-list-item").removeClass("selected");
+            $(this).addClass("selected");
+            switchSiteType(oldSelection);
+            //hideSiteTypeNav();
+            $(".demo-site-nav").removeClass("show").addClass("hideNav");
+            $('.demo-site-nav .icon').removeClass("icon-arrow-up").addClass("icon-arrow-down");
+            hideSiteTypeNotSelected();
+        });
+    }
+
+    hideSiteTypeNotSelected();
+    userSelectsSiteType();
+    toggleMenuOnArrowClick();
+    // end Site Type Nav functionality
 
 	// bit.ly API configuration
       var bitlyApi = {
