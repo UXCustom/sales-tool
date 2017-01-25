@@ -14,8 +14,8 @@ $(document).ready(function() {
 		var colorValue1 = $(".c1").spectrum("get");
 		var colorValue2 = $(".c2").spectrum("get");
 
-		$('p.colorText1').text(colorValue1);
-		$('p.colorText2').text(colorValue2);
+		$('.colorText1').text(colorValue1);
+		$('.colorText2').text(colorValue2);
 	});
 
     function createParams (colorKey, colorValue) {
