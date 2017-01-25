@@ -147,7 +147,7 @@ $(document).ready(function() {
             {
                 "id": "1",
                 "name": "article",
-                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/articleBased/sales-tool/"
+                "url": "http://productdevelopment.techtarget.com/projects/custom/prototypes/sales-tools/article"
             },
             {
                 "id": "2",
@@ -223,6 +223,19 @@ $(document).ready(function() {
     userSelectsSiteType();
     toggleMenuOnArrowClick();
     // end Site Type Nav functionality
+
+    // Get Sales Tool Selected Settings and open Email via Footer "Email" Link
+    var getSettings = function() {
+        var siteType = $('.demo-site-nav-list-item.selected').text(),
+            clientChoice = $('#clientChoice option:selected').text(),
+            layoutChoice = $('#layoutChoice option:selected').text(),
+            colorText1 = $('.colorText1').text(),
+            colorText2 = $('.colorText2').text();
+        var mailto = 'mailto:?body=Site Type: '+ siteType+'%0D%0A' +'Number of Clients: '+clientChoice+'%0D%0A'+'Layout: '+layoutChoice+'%0D%0A'+'Color Text 1: '+colorText1+'%0D%0A'+'Color Text 2: '+colorText2;
+        $('.demo-footer-button.demo-button-email').attr('href',mailto);
+    }
+    getSettings();
+    // END Sales Tool Selected Settings
 
 	// bit.ly API configuration
       var bitlyApi = {

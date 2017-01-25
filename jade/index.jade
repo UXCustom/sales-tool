@@ -88,9 +88,10 @@ body
           input.c2(name="html5colorpicker-color2" type="color", id="html5colorpicker-color2", style="width:100%;")
           span.colorText2
       div.demo-footer
-        button.demo-footer-button.demo-button-pdf(onclick="javascript:generatePDF();") PDF
-        button.demo-footer-button.demo-button-reset.reset Reset
-        .pull
+        a(title="Email These Settings").demo-footer-button.demo-button-email Email
+        button(title="Download PDF").demo-footer-button.demo-button-pdf(onclick="javascript:generatePDF();") PDF
+        button(title="Reset Settings").demo-footer-button.demo-button-reset.reset Reset
+        .pull(title="Close")
           p
     script(contenteditable).
       $('.pull').on('click', function() {
