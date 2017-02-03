@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
-	colorsObj = new Object();
+    var updatedCSS = $('#sheet1').attr('href');
+    localStorage.setItem('css', updatedCSS);
+
+    colorsObj = new Object();
 
 
 	$("input[type=color]").change(function() {
